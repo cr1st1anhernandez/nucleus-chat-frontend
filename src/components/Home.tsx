@@ -1,6 +1,6 @@
-function App() {
+function Home() {
   return (
-    <section className="indigo-light flex flex-col gap-12 px-5 pt-20 dark:text-white lg:flex-row xl:pt-36 2xl:px-52">
+    <section className="indigo-light flex flex-col gap-12 px-5 pt-20 lg:flex-row xl:pt-36 2xl:px-52 dark:text-white">
       <div className="flex flex-col gap-2 lg:w-1/2 lg:justify-center">
         <h1 className="shadow-indigo-600 drop-shadow-lg">Nucleus Chat</h1>
         <p>
@@ -29,4 +29,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
