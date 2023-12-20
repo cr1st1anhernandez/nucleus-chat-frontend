@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lintern 
+.prettierignore
+.prettierrc.json
+.eslintrc.json
