@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <section className="indigo-light flex flex-col gap-12 px-5 pt-20 dark:text-white lg:flex-row xl:pt-36 2xl:px-52">
+      <div className="flex flex-col gap-2 lg:w-1/2 lg:justify-center">
+        <h1 className="shadow-indigo-600 drop-shadow-lg">Nucleus Chat</h1>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Nucleus Chat te permite chatear con miles de personas por todo el
+          mundo solo basta con escribir el nombre del usuario y listo. Creada
+          con<span className="font-bold text-green-600"> SpringBoot </span>del
+          lado del servidor,
+          <span className="font-bold text-blue-600"> React </span>
+          del lado del cliente y
+          <span className="font-bold text-amber-500"> MySql </span> como base de
+          datos.
         </p>
+        <div className="grid gap-2 md:grid-cols-2">
+          <button>Probar</button>
+          <button>Github</button>
+          <button>Iniciar Sesión</button>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div className="mx-auto flex items-center justify-center sm:w-2/3 lg:w-1/2">
+        <img
+          src="/src/assets/images/principalImage.svg"
+          alt="Imagen principal del sitio"
+        />
+      </div>
+    </section>
   )
 }
 

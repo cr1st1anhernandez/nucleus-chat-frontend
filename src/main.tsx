@@ -5,6 +5,8 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <section className="min-h-screen bg-indigo-50">
+      <App />
+    </section>
   </React.StrictMode>,
 )
