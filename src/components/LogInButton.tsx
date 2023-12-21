@@ -7,8 +7,12 @@ const LoginButton = () => {
   return (
     <Button
       color="primary"
-      className="indigo-light dark:indigo-dark font-bold"
-      onClick={() => loginWithRedirect()}
+      className="font-bold indigo-light dark:indigo-dark"
+      onClick={() =>
+        loginWithRedirect({
+          appState: { returnTo: '/chat' },
+        })
+      }
     >
       Iniciar Sesión
     </Button>

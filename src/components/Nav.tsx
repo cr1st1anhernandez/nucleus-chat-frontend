@@ -43,9 +43,7 @@ export default function Nav() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
-        <NavbarItem>
-          <RegisterButton />
-        </NavbarItem>
+        <NavbarItem>{!isAuthenticated && <RegisterButton />}</NavbarItem>
         <NavbarItem>
           {isAuthenticated ? <LogOutButton /> : <LoginButton />}
         </NavbarItem>
@@ -62,7 +60,7 @@ export default function Nav() {
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <RegisterButton />
+          {!isAuthenticated && <RegisterButton />}
         </NavbarMenuItem>
         <NavbarMenuItem>
           {isAuthenticated ? <LogOutButton /> : <LoginButton />}
