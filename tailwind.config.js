@@ -51,7 +51,7 @@ export default {
         'indigo-dark': {
           extend: 'dark',
           colors: {
-            background: '#18181b',
+            background: '#000',
             foreground: '#fff',
             primary: {
               50: '#1e3a8a',
@@ -77,7 +77,7 @@ export default {
               large: '8px',
             },
             borderWidth: {
-              small: '1px',
+              small: '2px',
               medium: '2px',
               large: '3px',
             },
