@@ -7,7 +7,7 @@ const LoginButton = () => {
   return (
     <Button
       color="primary"
-      className="bg-indigo-600 font-bold text-white"
+      className="indigo-light dark:indigo-dark font-bold"
       onClick={() => loginWithRedirect()}
     >
       Iniciar Sesión

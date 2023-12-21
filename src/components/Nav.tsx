@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import LoginButton from './LogInButton'
 import LogOutButton from './LogOutButton'
+import RegisterButton from './RegisterButton'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Nav() {
@@ -43,6 +44,9 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem>
+          <RegisterButton />
+        </NavbarItem>
+        <NavbarItem>
           {isAuthenticated ? <LogOutButton /> : <LoginButton />}
         </NavbarItem>
       </NavbarContent>
@@ -56,6 +60,9 @@ export default function Nav() {
           <Link color="primary" className="w-full" to="/">
             Documentación
           </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <RegisterButton />
         </NavbarMenuItem>
         <NavbarMenuItem>
           {isAuthenticated ? <LogOutButton /> : <LoginButton />}
