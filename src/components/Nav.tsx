@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import {
   Navbar,
   NavbarBrand,
@@ -7,15 +8,15 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@nextui-org/navbar'
-import { Button } from '@nextui-org/react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import LoginButton from './LogInButton'
+import LogOutButton from './LogOutButton'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Nav() {
+  const { isAuthenticated } = useAuth0()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const menuItems = ['Chat', 'Documentation', 'Log Out']
 
   return (
     <Navbar maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
@@ -29,11 +30,11 @@ export default function Nav() {
           <p className="font-bold text-inherit">NUCLEUS CHAT</p>
         </Link>
       </NavbarBrand>
-      <NavbarContent className="hidden gap-4 md:flex" justify="center">
-        <NavbarItem>
+      <NavbarContent className="gap-4" justify="center">
+        <NavbarItem className="hidden md:flex">
           <Link to="/chat">CHAT</Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden md:flex">
           <Link to="/documentation">DOCUMENTATION</Link>
         </NavbarItem>
         <NavbarItem>
@@ -42,34 +43,23 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem>
-          <Button variant="bordered" color="primary" className="font-bold">
-            Crear Cuenta
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button color="primary" className="font-bold text-white">
-            Iniciar Sesión
-          </Button>
+          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="bg-indigo-50 dark:bg-zinc-900">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? 'primary'
-                  : index === menuItems.length - 1
-                    ? 'danger'
-                    : 'foreground'
-              }
-              className="w-full"
-              to="/"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+      <NavbarMenu className="bg-indigo-50 dark:bg-[#000]">
+        <NavbarMenuItem>
+          <Link color="primary" className="w-full" to="/">
+            Chat
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link color="primary" className="w-full" to="/">
+            Documentación
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   )
