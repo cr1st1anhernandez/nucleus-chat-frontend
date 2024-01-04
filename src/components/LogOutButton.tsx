@@ -1,18 +1,22 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import { Button } from '@nextui-org/react'
+import Cookies from 'js-cookie'
+import { useAuth } from '../hooks/useAuth'
+
 const LogOutButton = () => {
-  const { logout } = useAuth0()
+  const { setIsLoggedIn } = useAuth()
+  const handleLogOut = () => {
+    Cookies.remove('token')
+    setIsLoggedIn(false)
+  }
 
   return (
     <Button
       variant="ghost"
       className="font-bold"
       color="danger"
-      onClick={() =>
-        logout({ logoutParams: { returnTo: window.location.origin } })
-      }
+      onClick={() => handleLogOut()}
     >
-      Cerrar Sesion
+      Cerrar Sesión
     </Button>
   )
 }

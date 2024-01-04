@@ -1,21 +1,13 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { Button } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
 
 const LoginButton = () => {
-  const { loginWithRedirect } = useAuth0()
-
   return (
-    <Button
-      color="primary"
-      className="font-bold indigo-light dark:indigo-dark"
-      onClick={() =>
-        loginWithRedirect({
-          appState: { returnTo: '/chat' },
-        })
-      }
+    <Link
+      to="/login"
+      className="rounded-[6px] bg-indigo-600 p-2.5 font-bold text-white"
     >
       Iniciar Sesión
-    </Button>
+    </Link>
   )
 }
 

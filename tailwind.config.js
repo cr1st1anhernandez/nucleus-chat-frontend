@@ -30,6 +30,10 @@ export default {
               800: '#1e40af',
               900: '#1e3a8a',
               DEFAULT: '#4f46e5',
+              foreground: '#fff',
+            },
+            secondary: {
+              DEFAULT: '#64748b',
               foreground: '#000',
             },
             focus: '#60a5fa',
@@ -65,6 +69,10 @@ export default {
               800: '#dbeafe',
               900: '#eef2ff',
               DEFAULT: '#4f46e5',
+              foreground: '#fff',
+            },
+            secondary: {
+              DEFAULT: '#18181b',
               foreground: '#fff',
             },
             focus: '#60a5fa',

@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import {
   Navbar,
   NavbarBrand,
@@ -10,13 +9,14 @@ import {
 } from '@nextui-org/navbar'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 import LoginButton from './LogInButton'
 import LogOutButton from './LogOutButton'
 import RegisterButton from './RegisterButton'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Nav() {
-  const { isAuthenticated } = useAuth0()
+  const { isLoggedIn } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -43,9 +43,9 @@ export default function Nav() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
-        <NavbarItem>{!isAuthenticated && <RegisterButton />}</NavbarItem>
+        <NavbarItem>{!isLoggedIn && <RegisterButton />}</NavbarItem>
         <NavbarItem>
-          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
+          {isLoggedIn ? <LogOutButton /> : <LoginButton />}
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="bg-indigo-50 dark:bg-[#000]">
@@ -59,11 +59,9 @@ export default function Nav() {
             Documentación
           </Link>
         </NavbarMenuItem>
+        <NavbarMenuItem>{!isLoggedIn && <RegisterButton />}</NavbarMenuItem>
         <NavbarMenuItem>
-          {!isAuthenticated && <RegisterButton />}
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
+          {isLoggedIn ? <LogOutButton /> : <LoginButton />}
         </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
